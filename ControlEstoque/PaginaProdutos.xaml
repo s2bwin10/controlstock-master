@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="ControlEstoque.PaginaProdutos"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ControlEstoque"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:ControlEstoque.Models">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <GridView ItemsSource="{x:Bind _produtos}" Header="Promoções" Margin="0,242,10,10">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Produto">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock  FontSize="16"  Text="{x:Bind ProdutoId}"/>
+                        <TextBlock  FontSize="16"  Text="{x:Bind Nome}"/>
+                        <TextBlock  FontSize="10" Text="{x:Bind Preco}"/>
+                    </StackPanel>
+
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <TextBox x:Name="txtProduto" PlaceholderText="Nome do Produto" HorizontalAlignment="Left" Margin="10,60,-125,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="23" Width="340"/>
+        <TextBox x:Name="txtPreco" PlaceholderText="Preço Cotado" HorizontalAlignment="Left" Margin="10,107,-125,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="9" Width="340"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="10,149,0,-33" VerticalAlignment="Top" Width="99" Click="btnCadastrar_Click" Height="55"/>
+        <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="122,149,0,-33" VerticalAlignment="Top" Height="55" Width="101"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="235,149,-125,-33" VerticalAlignment="Top" Height="55" Width="115"/>
+        <Button x:Name="btnNavegaCarrinho" Content="Ir para Carrinho" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="45" Width="134" Click="btnNavegaCarrinho_Click"/>
+
+    </Grid>
+
+</Page>
