@@ -13,6 +13,7 @@ namespace ControlEstoque.Models
         [Key]
        
         public int PessoaId { get; set; }
+
         public string Nome { get; set; }
 
         public virtual ICollection<Pedido> Pedidos { get; set; }
